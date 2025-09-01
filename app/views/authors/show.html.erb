@@ -9,6 +9,7 @@
                 <% break if article.id == nil%>
                     <p><%= article.id %></p>
                     <p class="font-mono"><%= article.title %></p>
+                    <%= button_to 'Show', article_path(article.id), :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem] bg-black text-white", :method => "get" %>
                 <% end %>
             </div>
         <% else %>
