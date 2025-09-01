@@ -1,3 +1,4 @@
+<div class="flex flex-col gap-[1rem]">
 <%= form_with model: [@article, @comment], url: update_article_comment_path, html: {class: "border border-solid border-[0.1rem] rounded-[1rem] p-[1.5rem] flex flex-col gap-[0.5rem]"}, local: true do |f| %>
   <p>
     <%= f.label :username, :class => "font-mono font-bold" %>
@@ -13,3 +14,5 @@
     <%= f.submit 'Save Comment', :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem] bg-black text-white" %> 
   </p>
 <% end %>
+  <%= button_to 'Back to Article', article_path(@article.id), :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem]", :method => "get" %>
+</div>
