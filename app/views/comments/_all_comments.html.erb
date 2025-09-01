@@ -1,0 +1,21 @@
+<%= render "comments/comment_form", article: article %>
+
+<% if @comments.any? %>
+  <h1 class="text-xl font-mono font-bold">Comments</h1>
+    <div class = "border border-solid border-[0.1rem] rounded-[1rem] p-[1.5rem] flex flex-col gap-[0.5rem]">
+        <% @comments.each do |comment| %>
+        <% break if comment.id == nil%>
+        <div>
+            <p><%= comment.id %></p>
+            <h2 class="text-base font-mono"><%= comment.body %></h2>
+            <h4 class="text-sm font-mono italic"><%= comment.username %></h4>
+            <div class="flex flex-row gap-[0.5rem]">
+              <%= button_to 'Edit', edit_article_comment_path(article, comment), params: { article: article, comment: comment }, :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem] bg-black text-white", :method => "get" %>
+              <%= button_to 'Delete', destroy_article_comment_path(article, comment), :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem]", :method => "delete" %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+  <% else %>
+  <h1 class="text-xl font-mono font-bold">No comments to display</h1>
+<% end %>

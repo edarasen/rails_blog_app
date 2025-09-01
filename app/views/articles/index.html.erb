@@ -1,0 +1,17 @@
+<div class="flex flex-col gap-[1rem]">
+    <% @articles.each do |article| %>
+        <div class = "border border-solid border-[0.1rem] rounded-[1rem] p-[1.5rem] flex flex-col gap-[0.5rem]" >
+            <p><%= article.id %></p>
+            <h1 class="text-xl font-mono font-bold"><%= article.title %></h1>
+            <h3 class="text-base font-mono italic"><%= article.author.name%></h3>
+            <p><%= article.body %></p>
+            <div class="flex flex-row gap-[0.5rem]">
+                <%= button_to 'Show', article_path(article.id), :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem] bg-black text-white", :method => "get" %>
+                <%= button_to 'Edit', edit_article_path(article.id), :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem] bg-black text-white", :method => "get"%>
+                <%= button_to 'Delete', destroy_article_path(article.id), :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem]", :method => "delete" %>
+            </div>
+        </div>
+    <% end %>
+    <%= button_to 'New Article', new_article_path, :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem] bg-black text-white", :method => "get" %>
+    <%= button_to 'See All Authors', authors_path, :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem]", :method => "get" %>
+</div>

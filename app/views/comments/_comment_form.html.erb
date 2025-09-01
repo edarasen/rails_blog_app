@@ -1,0 +1,15 @@
+<%= form_with model: [article, article.comments.build], html: {class: "border border-solid border-[0.1rem] rounded-[1rem] p-[1.5rem] flex flex-col gap-[0.5rem]"}, local: true do |f| %>
+  <p>
+    <%= f.label :username, :class => "font-mono font-bold" %>
+    <%= f.text_field :username, :class => "border border-solid px-[0.25rem]" %>
+  </p>
+
+  <p>
+    <%= f.label :body, :class => "font-mono font-bold" %>
+    <%= f.textarea :body, :class => "border border-solid px-[0.25rem]", size: "40x3" %>
+  </p>
+
+  <p>
+    <%= f.submit 'Create Comment', :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem] bg-black text-white" %> 
+  </p>
+<% end %>
