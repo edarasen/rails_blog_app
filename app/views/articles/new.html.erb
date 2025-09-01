@@ -1,20 +1,23 @@
-<%= form_with scope: :article, url: create_article_path, html: {class: "border border-solid border-[0.1rem] rounded-[1rem] p-[1.5rem] flex flex-col gap-[0.5rem]"}, local: true do |f| %>
-  <p>
-    <%= f.label :title, :class => "font-mono font-bold" %>
-    <%= f.text_field :title, :class => "border border-solid px-[0.25rem]" %>
-  </p>
+<div class="flex flex-col gap-[1rem]">
+  <%= form_with scope: :article, url: create_article_path, html: {class: "border border-solid border-[0.1rem] rounded-[1rem] p-[1.5rem] flex flex-col gap-[0.5rem]"}, local: true do |f| %>
+    <p>
+      <%= f.label :title, :class => "font-mono font-bold" %>
+      <%= f.text_field :title, :class => "border border-solid px-[0.25rem]" %>
+    </p>
 
-  <p>
-    <%= f.label :body, :class => "font-mono font-bold" %>
-    <%= f.textarea :body, :class => "border border-solid px-[0.25rem]", size: "80x6" %>
-  </p>
+    <p>
+      <%= f.label :body, :class => "font-mono font-bold" %>
+      <%= f.textarea :body, :class => "border border-solid px-[0.25rem]", size: "80x6" %>
+    </p>
 
-  <p>
-    <%= f.label :author, :class => "font-mono font-bold" %>
-    <%= f.select :author, options_from_collection_for_select(Author.all, :id, :name), :class => "border border-solid px-[0.25rem]" %>
-  </p>
+    <p>
+      <%= f.label :author, :class => "font-mono font-bold" %>
+      <%= f.select :author, options_from_collection_for_select(Author.all, :id, :name), :class => "border border-solid px-[0.25rem]" %>
+    </p>
 
-  <p>
-    <%= f.submit 'Create Article', :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem] bg-black text-white" %>
-  </p>
-<% end %>
+    <p>
+      <%= f.submit 'Create Article', :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem] bg-black text-white" %>
+    </p>
+  <% end %>
+  <%= button_to 'Back to Articles', articles_path, :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem]", :method => "get" %>
+</div>

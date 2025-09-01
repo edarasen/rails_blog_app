@@ -1,12 +1,14 @@
-<%= form_with scope: :author, url: update_author_path, html: {class: "border border-solid border-[0.1rem] rounded-[1rem] p-[1.5rem] flex flex-col gap-[0.5rem]"}, local: true do |f| %>
-  <p>
-    <%= f.label :name, :class => "font-mono font-bold" %>
-    <br>
-    <%= f.text_field :name, :class => "border border-solid px-[0.25rem]"%>
-  </p>
+<div class="flex flex-col gap-[1rem]">
+  <%= form_with scope: :author, url: update_author_path, html: {class: "border border-solid border-[0.1rem] rounded-[1rem] p-[1.5rem] flex flex-col gap-[0.5rem]"}, local: true do |f| %>
+    <p>
+      <%= f.label :name, :class => "font-mono font-bold" %>
+      <br>
+      <%= f.text_field :name, :class => "border border-solid px-[0.25rem]"%>
+    </p>
 
-  <p>
-    <%= f.submit 'Save Author', :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem] bg-black text-white" %>
-    <%= button_to 'Back to Authors', authors_path, :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem]", :method => "get" %>
-  </p>
-<% end %>
+    <p>
+      <%= f.submit 'Save Author', :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem] bg-black text-white" %>
+    </p>
+  <% end %>
+  <%= button_to 'Back to Authors', authors_path, :class => "border border-solid border-[0.1rem] rounded-[1rem] px-[0.5rem] py-[0.25rem]", :method => "get" %>
+</div>
